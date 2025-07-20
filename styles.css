@@ -123,6 +123,7 @@ body {
   background: var(--gradient-red);
   color: white;
   border: none;
+  text-decoration: none;
   padding: 12px 24px;
   border-radius: 6px;
   font-weight: 600;
