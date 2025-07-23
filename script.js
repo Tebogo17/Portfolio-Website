@@ -145,14 +145,7 @@ document.addEventListener("DOMContentLoaded", () => {
     new TypeWriter(positionElement, ["Software Engineer"], 4000) // Slow pace with longer wait
   }
 
-  // Update the existing DOMContentLoaded event listener to include CV download
-  const downloadBtn = document.querySelector(".download-btn")
-  if (downloadBtn) {
-    downloadBtn.addEventListener("click", (e) => {
-      e.preventDefault()
-      generateAndDownloadCV()
-    })
-  }
+  
 })
 
 // Mobile Navigation
