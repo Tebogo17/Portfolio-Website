@@ -231,6 +231,7 @@ body {
   cursor: pointer;
   transition: all 0.3s ease;
   width: fit-content;
+  text-decoration: none;
 }
 
 .download-btn:hover {
