@@ -1,3 +1,94 @@
+// CV Download Functionality
+function generateAndDownloadCV() {
+  const cvContent = `MASHABANE TEBOGO NELSON
+060 939 7230 | mashabanetebogo812@gmail.com
+LinkedIn Profile: www.linkedin.com/in/tebogo-nelson-62a324275
+GitHub: https://github.com/Tebogo17
+Personal Website: https://tebogonelson.vercel.app/
+City: 87, Eastbank Avenue, Alexandra, Sandton, Johannesburg
+
+ASPIRING SOFTWARE DEVELOPER
+
+Final-year BSc IT student and aspiring software engineer passionate about building efficient, user-focused solutions. Skilled in programming and software development through both academic studies and independent projects, I thrive in collaborative environments, continuously learning and solving real-world problems with innovative technology. Open to mentorship, networking, and opportunities to grow in the tech industry.
+
+EDUCATION & CERTIFICATIONS
+
+Tertiary Qualifications
+Bachelor of Sciences in Information Technology – North West University – Present
+Expected Graduation – 2026
+
+Certifications
+Microsoft Azure - 2025
+AWS Cloud Computing 2025
+FNB App Academy 2025
+
+Short Courses
+Work Readiness Program 2025
+
+SOFT SKILLS
+Time-Management | Problem solving | Leadership | Team Collaboration | Organized | Web development | Software development | Creativity | Adaptability | Critical Thinking | Networking | Accountability | Work ethic | Goal Oriented | Attention to detail
+
+TOOLS & TECHNOLOGIES
+• Languages: JavaScript, Java, C#, HTML5, CSS3, SQL
+• Frameworks: (React, Node.js, Git)
+• Software Tools: Visual Studio, Visual Studio Code, Oracle
+• Databases: (MySQL, SQLite)
+• Additional software: Git, Android Studio, BlueJ
+
+ACHIEVEMENTS & HONORS
+• DevOps Member
+• Student Assistant (C#)
+• House Committee Leader (Faranani Residence)
+
+PROFESSIONAL EXPERIENCE
+
+Faranani Residence (NWU) | Vanderbijlpark                                    SEP 2023 – OCT 2024
+Social & Liaison officer with MPRO
+Plans, coordinates, and executes recruitment related activities in collaboration with the SCC.
+Coordinates the residence's participation in the NWU's annual Campus Open Day.
+
+▪ MPRO Recruitment Drive:
+Enhanced student engagement and improved residence applications through strategic campaigns and events.
+
+▪ Campus Open Day Coordination:
+Effectively coordinated Faranani Residence's participation, enhancing visibility and strengthening prospective student relations.
+
+North West University | Vanderbijlpark                                        FEB 2025 – JUN 2025
+Student Assistant (C#)
+Provided academic support in C# programming, assisting students with practical coding exercises, debugging, and understanding core software development concepts.
+
+▪ Web Development:
+Developed interactive web applications with robust validation and dynamic controls to ensure data accuracy and enhance user experience.
+
+▪ Mobile App Development:
+Developed cross-platform apps with Xamarin, emphasizing performance, clean UI, and API integration for enhanced usability.
+
+REFERENCES
+
+Mrs Monyadiwe Ramatlotlo
+Finance Department (NWU), Vanderbijlpark
+078 496 6879, Monyadiwe.Ramatlotlo@nwu.ac.za
+
+Mr Jan Kruger
+Lecturer (NWU), Vanderbijlpark
+083 733 2485, Jan.Kruger@nwu.ac.za
+
+Ms Bongisa Dyosoba
+Lecturer (NWU), Vanderbijlpark
++27169103292, Bongisa.Dyosoba@nwu.ac.za`
+
+  // Create and download the file
+  const blob = new Blob([cvContent], { type: "text/plain" })
+  const url = window.URL.createObjectURL(blob)
+  const a = document.createElement("a")
+  a.href = url
+  a.download = "Tebogo_Nelson_Mashabane_CV.txt"
+  document.body.appendChild(a)
+  a.click()
+  document.body.removeChild(a)
+  window.URL.revokeObjectURL(url)
+}
+
 // Typing Animation Class
 class TypeWriter {
   constructor(element, words, wait = 3000) {
@@ -53,6 +144,15 @@ document.addEventListener("DOMContentLoaded", () => {
   if (positionElement) {
     new TypeWriter(positionElement, ["Software Engineer"], 4000) // Slow pace with longer wait
   }
+
+  // Update the existing DOMContentLoaded event listener to include CV download
+  const downloadBtn = document.querySelector(".download-btn")
+  if (downloadBtn) {
+    downloadBtn.addEventListener("click", (e) => {
+      e.preventDefault()
+      generateAndDownloadCV()
+    })
+  }
 })
 
 // Mobile Navigation
@@ -102,8 +202,8 @@ window.addEventListener("scroll", () => {
 window.addEventListener("scroll", () => {
   const sections = document.querySelectorAll("section[id]")
   const navLinks = document.querySelectorAll(".nav-link")
-
   let current = ""
+
   sections.forEach((section) => {
     const sectionTop = section.offsetTop
     const sectionHeight = section.clientHeight
@@ -174,7 +274,6 @@ document.addEventListener("DOMContentLoaded", () => {
   animateElements.forEach((el, index) => {
     el.classList.add("fade-in")
     observer.observe(el)
-
     // Add stagger delay
     el.style.transitionDelay = `${index * 0.1}s`
   })
@@ -306,7 +405,6 @@ sections.forEach((section) => {
   section.style.transition = "all 0.8s ease"
 })
 
-// Reveal sections on scroll
 const sectionObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
