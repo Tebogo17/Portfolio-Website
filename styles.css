@@ -452,7 +452,7 @@ section {
   right: 0;
   bottom: 0;
   background: rgba(220, 38, 38, 0.9);
-  display: flex;
+  display: none; /*flex to make color red*/
   align-items: center;
   justify-content: center;
   opacity: 0;
