@@ -462,7 +462,7 @@ section {
 
 .project-card:hover .project-overlay {
   opacity: 1;
-  pointer-events: auto; /* Make links clickable on hover */
+  /*pointer-events: auto;  Make links clickable on hover */
 }
 
 .project-links {
