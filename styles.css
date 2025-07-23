@@ -457,10 +457,12 @@ section {
   justify-content: center;
   opacity: 0;
   transition: opacity 0.3s ease;
+  pointer-events: none; /* Allow hover to trigger links only */
 }
 
 .project-card:hover .project-overlay {
   opacity: 1;
+  pointer-events: auto; /* Make links clickable on hover */
 }
 
 .project-links {
