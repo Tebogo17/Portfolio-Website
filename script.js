@@ -1,4 +1,4 @@
-// CV Download Functionality
+/*// CV Download Functionality
 function generateAndDownloadCV() {
   const cvContent = `MASHABANE TEBOGO NELSON
 060 939 7230 | mashabanetebogo812@gmail.com
@@ -87,7 +87,7 @@ Lecturer (NWU), Vanderbijlpark
   a.click()
   document.body.removeChild(a)
   window.URL.revokeObjectURL(url)
-}
+}*/
 
 // Typing Animation Class
 class TypeWriter {
