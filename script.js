@@ -304,7 +304,7 @@ filterBtns.forEach((btn) => {
 })
 
 // Form submission
-document.querySelector(".contact-form").addEventListener("submit", function (e) {
+/*document.querySelector(".contact-form").addEventListener("submit", function (e) {
   e.preventDefault()
 
   const formData = new FormData(this)
@@ -346,7 +346,56 @@ document.querySelector(".contact-form").addEventListener("submit", function (e) 
       label.style.color = "var(--text-muted)"
     })
   }, 2000)
-})
+})*/
+// Initialize EmailJS (add your actual public key below)
+emailjs.init("UKTSKOK2GIbVR2XIE");
+
+document.querySelector(".contact-form").addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const formData = new FormData(this);
+  const name = formData.get("from_name");
+  const email = formData.get("from_email");
+  const subject = formData.get("subject");
+  const message = formData.get("message");
+
+  if (!name || !email || !subject || !message) {
+    alert("Please fill in all fields");
+    return;
+  }
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    alert("Please enter a valid email address");
+    return;
+  }
+
+  const submitBtn = this.querySelector(".submit-btn");
+  const originalText = submitBtn.innerHTML;
+
+  submitBtn.innerHTML = '<span>Sending...</span><i class="fas fa-spinner fa-spin"></i>';
+  submitBtn.disabled = true;
+
+  emailjs.sendForm("service_n9mrbbm", "template_81vxtvl", this)
+    .then(() => {
+      alert("Thank you for your message! I'll get back to you soon.");
+      this.reset();
+      submitBtn.innerHTML = originalText;
+      submitBtn.disabled = false;
+
+      document.querySelectorAll(".form-group label").forEach((label) => {
+        label.style.top = "16px";
+        label.style.fontSize = "16px";
+        label.style.color = "var(--text-muted)";
+      });
+    })
+    .catch((error) => {
+      alert("Oops! Something went wrong. Please try again.");
+      console.error("EmailJS Error:", error);
+      submitBtn.innerHTML = originalText;
+      submitBtn.disabled = false;
+    });
+});
 
 // Parallax effect for hero section
 window.addEventListener("scroll", () => {
