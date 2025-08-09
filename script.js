@@ -376,7 +376,7 @@ document.querySelector(".contact-form").addEventListener("submit", function (e) 
   submitBtn.innerHTML = '<span>Sending...</span><i class="fas fa-spinner fa-spin"></i>';
   submitBtn.disabled = true;
 
-  emailjs.send("service_n9mrbbm", "template_81vxtvl");
+  emailjs.sendForm("service_n9mrbbm", "template_81vxtvl", this)
     .then(() => {
       alert("Thank you for your message! I'll get back to you soon.");
       this.reset();
