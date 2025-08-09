@@ -348,7 +348,7 @@ filterBtns.forEach((btn) => {
   }, 2000)
 })*/
 // Initialize EmailJS (add your actual public key below)
-emailjs.init("UKTSKOK2GIbVR2XIE");
+emailjs.init("UKTSKOK2GIbVR2XIE")
 
 document.querySelector(".contact-form").addEventListener("submit", function (e) {
   e.preventDefault();
