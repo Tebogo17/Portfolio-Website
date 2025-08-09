@@ -378,6 +378,14 @@ document.querySelector(".contact-form").addEventListener("submit", function (e) 
 
   emailjs.sendForm("service_n9mrbbm", "template_81vxtvl", this)
     .then(() => {
+    // After sending main email, send auto-reply
+    return emailjs.send("service_n9mrbbm", "template_8aks4au", {
+      to_email: email,      // sender's email from form input
+      from_name: name,      // sender's name
+      // any other variables your thankyou template needs
+    });
+  })
+    .then(() => {
       alert("Thank you for your message! I'll get back to you soon.");
       this.reset();
       submitBtn.innerHTML = originalText;
