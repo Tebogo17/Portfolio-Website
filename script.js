@@ -354,18 +354,18 @@ document.querySelector(".contact-form").addEventListener("submit", function (e) 
   e.preventDefault();
 
   const formData = new FormData(this);
-  const name = formData.get("from_name");
-  const email = formData.get("from_email");
+  const from_name = formData.get("from_name");
+  const from_email = formData.get("from_email");
   const subject = formData.get("subject");
   const message = formData.get("message");
 
-  if (!name || !email || !subject || !message) {
+  if (!from_name || !from_email || !subject || !message) {
     alert("Please fill in all fields");
     return;
   }
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailRegex.test(email)) {
+  if (!emailRegex.test(from_email)) {
     alert("Please enter a valid email address");
     return;
   }
@@ -379,10 +379,8 @@ document.querySelector(".contact-form").addEventListener("submit", function (e) 
   emailjs.sendForm("service_n9mrbbm", "template_81vxtvl", this)
     .then(() => {
     // After sending main email, send auto-reply
-    return emailjs.send("service_n9mrbbm", "template_8aks4au", {
-      to_email: email,      // sender's email from form input
-      from_name: name,      // sender's name
-      // any other variables your thankyou template needs
+    return emailjs.send("service_n9mrbbm", "template_8aks4au",{
+      from_email,from_name
     });
   })
     .then(() => {
