@@ -512,50 +512,6 @@ section {
   flex-wrap: wrap;
 }
 
-/* Project Buttons */
-.project-buttons {
-  display: flex;
-  justify-content: center; /* Align to center */
-  gap: 12px;
-  margin-top: 15px;
-}
-
-.project-buttons a {
-  padding: 8px 16px;
-  border-radius: 6px;
-  font-size: 14px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-
-/* Live Demo Button */
-.btn-live {
-  background: var(--bg-secondary);
-  color: #fff;
-  border: 1px solid var(--border-color);
-}
-
-.btn-live:hover {
-  background: var(--dark-red);
-  transform: translateY(-2px);
-}
-
-/* Source Code Button */
-.btn-source {
-  background: var(--bg-secondary);
-  color: var(--text-primary);
-  border: 1px solid var(--border-color);
-}
-
-.btn-source:hover {
-  background: var(--primary-red);
-  color: #fff;
-  border-color: var(--primary-red);
-  transform: translateY(-2px);
-}
-
-
 .tech-tag {
   background: var(--primary-red);
   color: white;
