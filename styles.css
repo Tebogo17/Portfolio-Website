@@ -1073,3 +1073,9 @@ section {
     padding: 0 15px;
   }
 }
+.footer-content p {
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 14px;
+  margin-top: 20px;
+}
